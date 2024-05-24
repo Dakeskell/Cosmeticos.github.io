@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cosméticos Dica</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #2d2226;
+            background-color: #ffaaca; /* Color de fondo original */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+        }
+        .content {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente para mejorar legibilidad */
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1;
+            position: relative;
+        }
+        .productos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .producto {
+            border: 2px solid #2d2226;
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            cursor: pointer; /* Cambia el cursor al hacer hover sobre el producto */
+        }
+        .producto img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="https://raw.githubusercontent.com/Dakeskell/Cosmeticos.github.io/main/VID-20240523-WA0099.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+
+    <div class="content">
+        <h1>Cosméticos Dica</h1>
+        <h2>⌑Cosméticos Dica𑁤</h2>
+        <p>【 ♡ 】ᐥʼ˒  ིྀ︰Bienvenidos!! Esto es cosméticos Dicca para nuestros angelitos~ una alternativa de maquillaje libre de crueldad animal!</p>
+        <p>(ᵗᵒᵈᵒ ˡᵒ ᵠᵘᵉ ᶜᵒᵐᵖʳᵉˢ ᵃᵠᵘᶦ́ ˢᵉʳᵃ́ ᵈᶦʳᶦᵍᶦᵈᵒ ᵃ ᵘⁿᵃ ᶠᵘⁿᵈᵃᶜᶦᵒ́ⁿ ᵈᵉ ʳᵉˢᶜᵃᵗᵉ ʸ ʳᵉʰᵃᵇᶦˡᶦᵒⁿ ᵖᵃʳᵃ ᵐᵃˢᶜᵒᵗᵃˢ)</p>
+        
+        <div class="productos-container">
+            <!-- Espacio para el producto 1 -->
+            <div class="producto" onclick="mostrarCompraSimulada('Base multicolor ', '200 MXN')">
+                <img src="https://raw.githubusercontent.com/Dakeskell/Cosmeticos.github.io/main/Basecara.jpg" t" alt="Producto 1">
+                <p>Base multicolor</p>
+                <p>200 MXN</p>
+            </div>
+            
+            <!-- Espacio para el producto 2 -->
+            <div class="producto" onclick="mostrarCompraSimulada('Base con espejo', '400 MXN')">
+                <img src="https://raw.githubusercontent.com/Dakeskell/Cosmeticos.github.io/main/Baseespejo.jpg" alt="Producto 2">
+                <p>Base con espejo</p>
+                <p>400 MXN</p>
+            </div>
+
+            <!-- Espacio para el producto 3 -->
+            <div class="producto" onclick="mostrarCompraSimulada('Labial collar rojo', '600 MXN')">
+                <img src="https://raw.githubusercontent.com/Dakeskell/Cosmeticos.github.io/main/Labial.jpg" alt="Producto 3">
+                <p>Labial collar</p>
+                <p>600 MXN</p>
+            </div>
+<!-- Espacio para el producto 6 -->
+<div class="producto" onclick="mostrarCompraSimulada('Sombra pestañas', '400 MXN')">
+    <img src="https://raw.githubusercontent.com/Dakeskell/Cosmeticos.github.io/main/Sombrapestañas.jpg" alt="Producto 4">
+    <p>Sombra para pestañas</p>
+    <p>400 MXN</p>
+</div>
+</div>
+</div>
+
+<div id="compra-simulada" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 10px; z-index: 999;">
+    <!-- Cuadro de compra simulado -->
+    <h2 id="producto-nombre"></h2>
+    <p id="producto-precio"></p>
+    <button id="boton-comprar">Comprar</button>
+</div>
+
+<audio id="sonido-compra" src="https://raw.githubusercontent.com/Dakeskell/cosmeticos.github.io/main/Fnafhinkspund.m4a"></audio>
+
+<script>
+    // Función para mostrar el cuadro de compra simulado con los detalles del producto
+    function mostrarCompraSimulada(nombre, precio) {
+        document.getElementById('producto-nombre').textContent = nombre;
+        document.getElementById('producto-precio').textContent = 'Precio: ' + precio;
+        document.getElementById('compra-simulada').style.display = 'block';
+    }
+
+    // Cerrar el cuadro de compra simulado al hacer clic en el botón de comprar
+    document.getElementById('boton-comprar').addEventListener('click', function() {
+        // Reproducir el sonido de compra
+        document.getElementById('sonido-compra').play();
+        
+        // Ocultar el cuadro de compra simulada
+        document.getElementById('compra-simulada').style.display = 'none';
+        // Aquí puedes agregar la lógica para realizar la compra
+    });
+</script>
+</body>
+</html>
